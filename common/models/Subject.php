@@ -13,12 +13,14 @@ use Yii;
  */
 class Subject extends \yii\db\ActiveRecord
 {
+    const TABLE_NAME = 'subject';
+
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'subject';
+        return self::TABLE_NAME;
     }
 
     /**
