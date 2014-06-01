@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property double $value
- * @property string $dateTime
+ * @property \DateTime $dateTime
  *
  * @property Subject $subject
  */
@@ -32,7 +32,8 @@ class Measurement extends \yii\db\ActiveRecord
     {
         return [
             [['value'], 'number'],
-            [['dateTime'], 'safe']
+            [['value'], 'required'],
+            [['dateTime'], 'date', 'format' => 'Y-m-d H:i:s'],
         ];
     }
 

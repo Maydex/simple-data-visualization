@@ -32,12 +32,16 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
+            'enableStrictParsing' => true,
+            'enablePrettyUrl' => true,
             'rules' => [
                 'subjects' => 'subject/index',
                 'subject/new' => 'subject/create',
                 'subject/<id:\d+>' => 'subject/view',
                 'subject/update/<id:\d+>' => 'subject/update',
                 'subject/delete/<id:\d+>' => 'subject/delete',
+
+                'measurement/create/<subjectSlug:[\w-]+>/<values>' => 'measurement/add-measurement'
             ],
         ],
     ],
