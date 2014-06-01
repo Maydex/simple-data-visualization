@@ -34,6 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'description:ntext',
+            'unit',
+            'maxValue',
+            'minValue',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

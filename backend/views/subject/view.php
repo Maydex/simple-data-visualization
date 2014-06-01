@@ -32,12 +32,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
+            'slug',
             [
                 'name' => 'presentationType',
                 'label' => Yii::t('app', 'Presentation type'),
-                'value' => Yii::t('app', $model->presentationType),
+                'value' => \common\models\SubjectPresentationType::getTypesWithTranslations()[$model->presentationType],
             ],
             'description:ntext',
+            'unit',
+            'minValue',
+            'maxValue',
+            [
+                'label' => Yii::t('app', 'Number of measurements'),
+                'value' => $model->getMeasurements()->count()
+            ],
+            [
+                'label' => Yii::t('app', 'Average measurement'),
+                'value' => $model->getMeasurements()->average('value'),
+            ]
         ],
     ]) ?>
 

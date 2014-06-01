@@ -24,6 +24,12 @@ use common\models\SubjectPresentationType;
 
     <?= $form->field($model, 'presentationType')->dropDownList(SubjectPresentationType::getTypesWithTranslations()) ?>
 
+    <?= $form->field($model, 'unit')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'minValue')->textInput(['maxlength' => 10]) ?>
+
+    <?= $form->field($model, 'maxValue')->textInput(['maxlength' => 10]) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
