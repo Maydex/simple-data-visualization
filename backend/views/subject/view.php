@@ -32,6 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
+            [
+                'name' => 'presentationType',
+                'label' => Yii::t('app', 'Presentation type'),
+                'value' => Yii::t('app', $model->presentationType),
+            ],
             'description:ntext',
         ],
     ]) ?>

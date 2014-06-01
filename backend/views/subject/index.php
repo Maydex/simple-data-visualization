@@ -12,6 +12,7 @@ use yii\grid\GridView;
 $this->title = Yii::t('app', 'Subjects');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?php \yii\widgets\Pjax::begin() ?>
 <div class="subject-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -39,3 +40,4 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 
 </div>
+<?php \yii\widgets\Pjax::end() ?>

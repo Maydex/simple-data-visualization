@@ -34,6 +34,9 @@ class SubjectController extends Controller
     {
         $searchModel = new SubjectSearchModel;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+        $dataProvider->setPagination([
+            'pageSize' => 10,
+        ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,

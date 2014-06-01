@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property string $description
+ * @property string $presentationType
  */
 class Subject extends \yii\db\ActiveRecord
 {
@@ -32,7 +33,10 @@ class Subject extends \yii\db\ActiveRecord
             [['name', 'description'], 'required'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 255],
-            [['name'], 'unique']
+            [['name'], 'unique'],
+            [['presentationType'], 'string', 'max' => 255],
+            [['presentationType'], 'in', 'range' => SubjectPresentationType::getTypes()],
+            [['presentationType'], 'default', 'value' => SubjectPresentationType::LINE_CHART],
         ];
     }
 
@@ -45,6 +49,7 @@ class Subject extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
             'description' => Yii::t('app', 'Description'),
+            'presentationType' => Yii::t('app', 'Presentation type'),
         ];
     }
 }
