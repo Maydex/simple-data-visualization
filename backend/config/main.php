@@ -35,6 +35,9 @@ return [
             'enableStrictParsing' => true,
             'enablePrettyUrl' => true,
             'rules' => [
+                'gii'=>'gii',
+                'gii/<controller:\w+>'=>'gii/<controller>',
+                'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
                 'subjects' => 'subject/index',
                 'subject/new' => 'subject/create',
                 'subject/<id:\d+>' => 'subject/view',

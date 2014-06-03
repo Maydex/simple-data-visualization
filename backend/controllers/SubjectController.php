@@ -2,9 +2,11 @@
 
 namespace backend\controllers;
 
+use common\models\Measurement;
 use Yii;
 use common\models\Subject;
 use common\models\search\SubjectSearchModel;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -51,8 +53,18 @@ class SubjectController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => Measurement::find()->where(['subject' => $id])->orderBy('dateTime asc'),
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'measurements' => $dataProvider,
         ]);
     }
 

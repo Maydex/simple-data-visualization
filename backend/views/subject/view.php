@@ -53,4 +53,15 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?=
+        \yii\grid\GridView::widget([
+            'dataProvider' => $measurements,
+            'columns' => [
+                'id',
+                'dateTime',
+                'value'
+            ],
+        ]);
+    ?>
+
 </div>
